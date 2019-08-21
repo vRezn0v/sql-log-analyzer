@@ -9,15 +9,23 @@ def send_query(query):
     c.execute(query)
     return c.fetchall()
     db.close()
-//Find top 3 posts of all time
+
+def print_result(query):
+    '''prints the result obtained from send_query()'''
+    results=send_query(query)
+    for result in results:
+        print(str(result[0]) + ' ' + str(result[1]) + ' views')
+#Find top 3 posts of all time
 q1='''select title,count(*) as views from articles inner join 
       log on CONCAT('/article/',articles.slug)=log.path
       where log.status='200 OK'
       group by log.path,articles.title order by views desc limit 3;'''
-//Views on posts by different authors
+#Views on posts by different authors
 q2='''select authors.name,count(*) as views from articles inner join 
       authors on articles.author = authors.id inner join 
       log on CONCAT('/article/',articles.slug)=log.path where 
       log.status='200 OK' group by authors.name order by views desc;'''
-//Find Days having more than 1 percent downtime
-q3='''//QUERY 3'''
+#Find Days having more than 1 percent downtime
+q3='''QUERY 3'''
+
+print_result(q1)
