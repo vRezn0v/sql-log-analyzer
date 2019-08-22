@@ -11,7 +11,9 @@ def send_query(query):
     db.close()
 
 def print_result(query,flag):
-    '''prints the result obtained from send_query()'''
+    '''reads and prints the result obtained from send_query()
+       varies in queries for different requests using flag
+       0 for views and 1 for percentage'''
     if flag==0:
           st=' views.'
     elif flag==1:
@@ -38,6 +40,7 @@ q3='''select * from (
       on t1.day=t2.day)
       as total where err > 1.0;'''
 
+#print the result of queries using the print_result()
 print("Top 3 Posts of all time:")
 print_result(q1,0)
 print("\nAuthor Leaderboard:")
