@@ -18,22 +18,22 @@ The tasks are:
 - FSND Virtual Machine
 
 ## Execution: ##
-- Download the 'newsdata.sql' file from the Udacity page for this project and place it in vagrant directory.
+- Download the `newsdata.sql` file from the Udacity page for this project and place it in vagrant directory.
 - Start the vagrant session with
-'''sh
+```sh
 vagrant up
-'''
+```
 - Log into vagrant box via SSH
-'''sh
+```sh
 vagrant ssh
-'''
+```
 - Load the database into vagrant box by executing
-'''sh
+```sh
 psql -d news -f newsdata.sql
-'''
+```
 - Finally, run the analyzer script using
-'''sh
+```sh
 python log-analyzer.py
-'''
+```
 
 ---
