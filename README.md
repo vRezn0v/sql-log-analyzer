@@ -12,8 +12,28 @@ The tasks are:
 
 - To list the days when more than 1% of requests to the server resulted in errors. (Codes other than 200 OK)
 
-Dependencies:
- psycopg2
+## Dependencies: ##
+- psycopg2
+- Vagrant
+- FSND Virtual Machine
 
-Execution:
-$ python log-analyzer.py
+## Execution: ##
+- Download the 'newsdata.sql' file from the Udacity page for this project and place it in vagrant directory.
+- Start the vagrant session with
+'''sh
+vagrant up
+'''
+- Log into vagrant box via SSH
+'''sh
+vagrant ssh
+'''
+- Load the database into vagrant box by executing
+'''sh
+psql -d news -f newsdata.sql
+'''
+- Finally, run the analyzer script using
+'''sh
+python log-analyzer.py
+'''
+
+---
