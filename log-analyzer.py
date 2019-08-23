@@ -3,7 +3,7 @@
 import psycopg2
 
 def send_query(query):
-    '''Makes a query to the database.'''
+    '''Makes a SQL query to the news database.'''
     db=psycopg2.connect(database="news")
     c=db.cursor()
     c.execute(query)
@@ -12,7 +12,7 @@ def send_query(query):
 
 def print_result(query,flag):
     '''reads and prints the result obtained from send_query()
-       varies in queries for different requests using flag
+       varies in query output for different requests using flags:
        0 for views and 1 for percentage'''
     if flag==0:
           st=' views.'
